@@ -25,28 +25,6 @@ $(() => {
     let ICAO,
         airports;
 
-    var addMarkers = function (markersData) {
-
-        $.each(
-            markersData,
-            (key, markerData) => {
-
-                L.marker(
-                    [
-                        markerData.lat,
-                        markerData.long
-                    ],
-                    {"title": markerData.icao}
-                ).addTo(map).on(
-                    "click",
-                    onMarkerClick
-                );
-
-            }
-        );
-
-    }
-
     function onMarkerClick() {
 
         const code = this.options.title;
@@ -58,11 +36,25 @@ $(() => {
     $.getJSON(
         "../data/icao.json",
         (data) => {
-
             ICAO = data;
 
-            addMarkers(ICAO);
+            $.each(
+                ICAO,
+                (key, markerData) => {
 
+                    L.marker(
+                        [
+                            markerData.lat,
+                            markerData.long
+                        ],
+                        {"title": markerData.icao}
+                    ).addTo(map).on(
+                        "click",
+                        onMarkerClick
+                    );
+
+                }
+            );
         }
     );
 
