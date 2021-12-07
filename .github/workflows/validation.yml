@@ -18,7 +18,7 @@ jobs:
         with:
           root: ./
       - name: Install eslint
-        run: npm i -g eslint && npm i -g eslint-config-jquery
+        run: npm i -g eslint && npm install eslint-config-jquery --save
       - name: Run ESLint
         run:  eslint "js/*.js" --ext .js
       - name: Validate JSON with Glob ICAO
