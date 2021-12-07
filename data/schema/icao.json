@@ -1,0 +1,76 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/icao.json",
+  "title": "Root",
+  "type": "array",
+  "default": [],
+  "items": {
+    "$id": "#root/items",
+    "title": "Items",
+    "type": "object",
+    "required": [
+      "icao",
+      "type",
+      "name",
+      "lat",
+      "long"
+    ],
+    "properties": {
+      "icao": {
+        "$id": "#root/items/icao",
+        "title": "ICAO airport code",
+        "type": "string",
+        "default": "",
+        "examples": [
+          "PANC"
+        ],
+        "pattern": "^.*$"
+      },
+      "type": {
+        "$id": "#root/items/type",
+        "title": "Type",
+        "type": "string",
+        "default": "",
+        "enum": [
+          "large_airport",
+          "medium_airport",
+          "small_airport",
+          "seaplane_base",
+          "heliport",
+          "closed"
+        ]
+      },
+      "name": {
+        "$id": "#root/items/name",
+        "title": "Airport name",
+        "type": "string",
+        "default": "",
+        "examples": [
+          "Ted Stevens Anchorage International Airport"
+        ],
+        "pattern": "^.*$"
+      },
+      "lat": {
+        "$id": "#root/items/lat",
+        "title": "Latitude",
+        "type": "number",
+        "minimum": -90,
+        "maximum": 90,
+        "examples": [
+          61.1744
+        ]
+      },
+      "long": {
+        "$id": "#root/items/long",
+        "title": "Longitude",
+        "type": "number",
+        "minimum": -180,
+        "maximum": 180,
+        "examples": [
+          -149.996002
+        ]
+      }
+    }
+  }
+}

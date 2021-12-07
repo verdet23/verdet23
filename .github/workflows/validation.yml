@@ -17,3 +17,5 @@ jobs:
         uses: Cyb3r-Jak3/html5validator-action@v7.0.0
         with:
           root: ./
+      - name: Run ESLint
+        run: eslint js/*.js --ext .js

@@ -1,0 +1,24 @@
+[
+  {
+    "icao": "PANC",
+    "type": "large_airport",
+    "name": "Ted Stevens Anchorage International Airport",
+    "lat": 61.1744,
+    "long": -149.996002
+  },
+  {
+    "icao":"PAKD",
+    "type": "small_airport",
+    "name": "Kodiak Municipal Airport",
+    "lat": 57.8059005737,
+    "long": -152.37399292
+  },
+  {
+    "icao":"PADQ",
+    "type": "medium_airport",
+    "name": "Kodiak Airport",
+    "lat": 57.75,
+    "long": -152.4940033
+  }
+]
+
