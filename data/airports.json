@@ -1,118 +1,68 @@
-{
-  "definitions": {},
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://example.com/airport.json",
-  "title": "Root",
-  "type": "array",
-  "default": [],
-  "items": {
-    "$id": "#root/items",
-    "title": "Items",
-    "type": "object",
-    "required": [
-      "icao",
-      "list"
-    ],
-    "properties": {
-      "icao": {
-        "$id": "#root/items/icao",
-        "title": "ICAO code",
-        "type": "string",
-        "default": "",
-        "examples": [
-          "PANC"
+[
+  {
+    "icao": "PANC",
+    "list": [
+      {
+        "link": "https://forums.x-plane.org/index.php?/files/file/61336-panc-anchorage-ted-stevens-international-by-zero-dollar-payware/",
+        "title": "PANC - Anchorage Ted Stevens International by Zero Dollar Payware",
+        "version": [
+          11
         ],
-        "pattern": "^.*$"
+        "source": "forums_xplane_org",
+        "source_id": "61336",
+        "payware": false
       },
-      "list": {
-        "$id": "#root/items/list",
-        "title": "List",
-        "type": "array",
-        "default": [],
-        "items": {
-          "$id": "#root/items/list/items",
-          "title": "Items",
-          "type": "object",
-          "required": [
-            "link",
-            "title",
-            "version",
-            "source",
-            "source_id",
-            "payware"
-          ],
-          "properties": {
-            "link": {
-              "$id": "#root/items/list/items/link",
-              "title": "Link",
-              "type": "string",
-              "default": "",
-              "examples": [
-                "https://forums.x-plane.org/index.php?/files/file/61336-panc-anchorage-ted-stevens-international-by-zero-dollar-payware/"
-              ],
-              "pattern": "^[(http)(https)].*$"
-            },
-            "title": {
-              "$id": "#root/items/list/items/title",
-              "title": "Scenery Title",
-              "type": "string",
-              "default": "",
-              "examples": [
-                "PANC - Anchorage Ted Stevens International by Zero Dollar Payware"
-              ],
-              "pattern": "^.*$"
-            },
-            "version": {
-              "$id": "#root/items/list/items/version",
-              "title": "Xplane version",
-              "type": "array",
-              "default": [],
-              "items": {
-                "$id": "#root/items/list/items/version/items",
-                "title": "Items",
-                "type": "integer",
-                "enum": [
-                  11,
-                  10,
-                  9
-                ],
-                "default": 11
-              }
-            },
-            "source": {
-              "$id": "#root/items/list/items/source",
-              "title": "Source",
-              "type": "string",
-              "default": "",
-              "enum": [
-                "store_xplane_org",
-                "forums_xplane_org"
-              ],
-              "pattern": "^.*$"
-            },
-            "source_id": {
-              "$id": "#root/items/list/items/source_id",
-              "title": "Source_id",
-              "type": "string",
-              "default": "",
-              "examples": [
-                "61336"
-              ],
-              "pattern": "^.*$"
-            },
-            "payware": {
-              "$id": "#root/items/list/items/payware",
-              "title": "Payware",
-              "type": "boolean",
-              "examples": [
-                false,
-                true
-              ],
-              "default": false
-            }
-          }
-        }
+      {
+        "link": "https://forums.x-plane.org/index.php?/files/file/28473-panc-ted-stevens-anchorage-international-airport-ffdg/",
+        "title": "PANC Ted Stevens Anchorage International Airport (FFDG) 1.10",
+        "version": [
+          10
+        ],
+        "source": "forums_xplane_org",
+        "source_id": "28473",
+        "payware": false
+      },
+      {
+        "link": "https://store.x-plane.org/PANC--Anchorage-International-Airport_p_241.html",
+        "title": "PANC - Anchorage International Airport",
+        "version": [
+          11,
+          10
+        ],
+        "source": "store_xplane_org",
+        "source_id": "241",
+        "payware": true
       }
-    }
+    ]
+  },
+  {
+    "icao": "PADQ",
+    "list": [
+      {
+        "link": "https://forums.x-plane.org/index.php?/files/file/62817-kodiak-alaska/",
+        "title": "Kodiak Alaska 1.41",
+        "version": [
+          11
+        ],
+        "source": "forums_xplane_org",
+        "source_id": "62817",
+        "payware": false
+      }
+    ]
+  },
+  {
+    "icao": "PAKD",
+    "list": [
+      {
+        "link": "https://forums.x-plane.org/index.php?/files/file/62817-kodiak-alaska/",
+        "title": "Kodiak Alaska 1.41",
+        "version": [
+          11
+        ],
+        "source": "forums_xplane_org",
+        "source_id": "62817",
+        "payware": false
+      }
+    ]
   }
-}
+]
