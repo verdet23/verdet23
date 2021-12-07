@@ -1,3 +1,9 @@
 {
-  "extends": "jquery"
+  "plugins": [
+    "rc-leaflet"
+  ],
+  "env": {
+    "browser": true,
+    "jquery": true
+  }
 }
