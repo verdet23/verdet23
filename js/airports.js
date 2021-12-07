@@ -22,15 +22,25 @@ $(() => {
         }
     ).addTo(map);
 
+    let template = $('#template').innerHTML;
+    Mustache.parse(template);
+
+    let table = $('result')
+
     let ICAO,
         airports;
 
-    function onMarkerClick() {
-
-        const code = this.options.title;
-
-        console.log(code);
-
+    function showData(code) {
+        for (let airport in airports) {
+            if (code === airport.icao) {
+                table.html("");
+                for (let data in airport.list) {
+                    let rendered = Mustache.render(template, data);
+                    table.append(rendered);
+                }
+                break;
+            }
+        }
     }
 
     $.getJSON(
@@ -50,7 +60,9 @@ $(() => {
                         {"title": markerData.icao}
                     ).addTo(map).on(
                         "click",
-                        onMarkerClick
+                        function () {
+                            showData(this.options.title);
+                        }
                     );
 
                 }
