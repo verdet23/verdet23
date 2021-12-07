@@ -20,7 +20,7 @@ jobs:
       - name: Install modules
         run: yarn
       - name: Run ESLint
-        run: eslint "js/*.js" --ext .js
+        run: yarn eslint "js/*.js" --ext .js
       - name: Validate JSON with Glob ICAO
         uses: nhalstead/validate-json-action@0.1.3
         with:
