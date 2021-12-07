@@ -17,10 +17,10 @@ jobs:
         uses: Cyb3r-Jak3/html5validator-action@v7.0.0
         with:
           root: ./
-      - name: Install modules
-        run: yarn
-      - name: Run ESLint
-        run: yarn eslint "js/*.js" --ext .js
+#      - name: Install modules
+#        run: yarn
+#      - name: Run ESLint
+#        run: yarn eslint "js/*.js" --ext .js
       - name: Validate JSON with Glob ICAO
         uses: nhalstead/validate-json-action@0.1.3
         with:
