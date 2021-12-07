@@ -50,7 +50,7 @@
               "examples": [
                 "https://forums.x-plane.org/index.php?/files/file/61336-panc-anchorage-ted-stevens-international-by-zero-dollar-payware/"
               ],
-              "pattern": "^[(http)(https)]://.*$"
+              "pattern": "^[(http)(https)].*$"
             },
             "title": {
               "$id": "#root/items/list/items/title",
@@ -107,7 +107,7 @@
               "examples": [
                 false
               ],
-              "default": true
+              "default": false
             }
           }
         }
