@@ -22,25 +22,26 @@ $(() => {
         }
     ).addTo(map);
 
-    let template = $('#template').innerHTML;
+    let template = $('#template').html();
     Mustache.parse(template);
 
-    let table = $('result')
+    let table = $('#result');
 
     let ICAO,
         airports;
 
     function showData(code) {
-        for (let airport in airports) {
+        airports.some(airport => {
             if (code === airport.icao) {
                 table.html("");
-                for (let data in airport.list) {
+                airport.list.forEach( data => {
+                    console.log(data);
                     let rendered = Mustache.render(template, data);
                     table.append(rendered);
-                }
-                break;
+                });
+                return true;
             }
-        }
+        });
     }
 
     $.getJSON(

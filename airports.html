@@ -88,12 +88,12 @@
 </div>
 <script id="template" type="x-tmpl-mustache">
       <tr>
-        <th><<a href="{{ link }}">Link</a></th>
-        <td>{{ Title }}</td>
-        <td>{{ Source }}</td>
+        <th><a href="{{ link }}">Link</a></th>
+        <td>{{ title }}</td>
+        <td>{{ source }}</td>
         <td>
-            {{#payware}}<b>{{name}}F{{/payware}}
-            {{^payware}}$${{/payware}}
+            {{#payware}}<b>{{name}}$${{/payware}}
+            {{^payware}}F{{/payware}}
         </td>
        </tr>
 </script>
