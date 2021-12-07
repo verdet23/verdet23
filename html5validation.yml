@@ -1,1 +1,2 @@
-ignore_re: x-tmpl-mustache
+ignore_re:
+  - 'x-tmpl-mustache'
