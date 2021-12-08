@@ -37,8 +37,6 @@
             "link",
             "title",
             "version",
-            "source",
-            "source_id",
             "payware"
           ],
           "properties": {
@@ -78,27 +76,6 @@
                 ],
                 "default": 11
               }
-            },
-            "source": {
-              "$id": "#root/items/list/items/source",
-              "title": "Source",
-              "type": "string",
-              "default": "",
-              "enum": [
-                "store_xplane_org",
-                "forums_xplane_org"
-              ],
-              "pattern": "^.*$"
-            },
-            "source_id": {
-              "$id": "#root/items/list/items/source_id",
-              "title": "Source_id",
-              "type": "string",
-              "default": "",
-              "examples": [
-                "61336"
-              ],
-              "pattern": "^.*$"
             },
             "payware": {
               "$id": "#root/items/list/items/payware",

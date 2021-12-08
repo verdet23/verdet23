@@ -22,20 +22,17 @@ $(() => {
         }
     ).addTo(map);
 
-    let template = $('#template').html();
-    Mustache.parse(template);
-
-    let table = $('#result');
-
-    let ICAO,
+    let template = $("#template").html(),
+        table = $("#result"),
+        ICAO,
         airports;
+    Mustache.parse(template);
 
     function showData(code) {
         airports.some(airport => {
             if (code === airport.icao) {
                 table.html("");
-                airport.list.forEach( data => {
-                    console.log(data);
+                airport.list.forEach(data => {
                     let rendered = Mustache.render(template, data);
                     table.append(rendered);
                 });
@@ -49,9 +46,7 @@ $(() => {
         (data) => {
             ICAO = data;
 
-            $.each(
-                ICAO,
-                (key, markerData) => {
+            ICAO.forEach(markerData => {
 
                     L.marker(
                         [
@@ -79,5 +74,4 @@ $(() => {
 
         }
     );
-
 });

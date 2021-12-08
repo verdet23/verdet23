@@ -8,8 +8,6 @@
         "version": [
           11
         ],
-        "source": "forums_xplane_org",
-        "source_id": "61336",
         "payware": false
       },
       {
@@ -18,8 +16,6 @@
         "version": [
           10
         ],
-        "source": "forums_xplane_org",
-        "source_id": "28473",
         "payware": false
       },
       {
@@ -29,8 +25,6 @@
           11,
           10
         ],
-        "source": "store_xplane_org",
-        "source_id": "241",
         "payware": true
       }
     ]
@@ -44,8 +38,6 @@
         "version": [
           11
         ],
-        "source": "forums_xplane_org",
-        "source_id": "62817",
         "payware": false
       }
     ]
@@ -59,8 +51,6 @@
         "version": [
           11
         ],
-        "source": "forums_xplane_org",
-        "source_id": "62817",
         "payware": false
       }
     ]
