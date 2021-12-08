@@ -2,14 +2,47 @@ $(() => {
 
     "use strict";
 
+    $("#search").on("keypress", function (event) {
+        const elem = $(this);
+        elem.removeClass("is-invalid");
+        let keycode = (event.keyCode ? event.keyCode : event.which);
+        if (keycode == '13') {
+            let code = elem.val().toUpperCase();
+            let icaoRegEx = new RegExp("^[A-Z0-9-]{3,}$");
+
+            if (icaoRegEx.test(code)) {
+                let icaoData;
+                for (let i = 0; i < ICAO.length; i++) {
+                    let check = ICAO[i];
+                    if (check.icao === code) {
+                        icaoData = check;
+                        break;
+                    }
+                }
+
+                if (icaoData) {
+                    map.flyTo([icaoData.lat, icaoData.long], 10);
+                    showData(icaoData.icao);
+
+                    return;
+                }
+
+            }
+
+            table.html("");
+            elem.addClass("is-invalid");
+        }
+    });
+
+
     const map = L.map(
         "map",
         {
             "center": [
-                57.75,
-                -152.49
+                59.734253447591364,
+                -149.04052734375003
             ],
-            "zoom": 13
+            "zoom": 6
         }
     );
 

@@ -20,34 +20,38 @@
 </head>
 <body>
 <div class="container">
-    <div id="map" style="height: 500px;"></div>
-    <div class="form-group row">
-        <input id="search" type="search" class="form-control" placeholder="ICAO code">
+    <h2 class="text-center">X-Plane Airport Scenery Packages</h2>
+    <div id="map" class="row" style="height: 500px;"></div>
+    <div class="row mx-auto form-group row p-3">
+        <input id="search" type="search" class="form-control text-uppercase" placeholder="ICAO code" autocomplete="off">
+        <table class="table thead-dark">
+            <thead>
+            <tr>
+                <th>Link</th>
+                <th>Title</th>
+                <th>Version</th>
+                <th>Payware</th>
+            </tr>
+            </thead>
+            <tbody id="result">
+            </tbody>
+        </table>
     </div>
-    <table class="table thead-dark">
-        <thead>
-        <tr>
-            <th>Link</th>
-            <th>Title</th>
-            <th>Source</th>
-            <th>Payware</th>
-        </tr>
-        </thead>
-        <tbody id="result">
-        </tbody>
-    </table>
-
 </div>
 <script id="template" type="x-tmpl-mustache">
       <tr>
         <th><a href="{{ link }}">Link</a></th>
         <td>{{ title }}</td>
-        <td>{{ source }}</td>
         <td>
-            {{#payware}}<b>{{name}}$${{/payware}}
-            {{^payware}}F{{/payware}}
+        {{#version}}
+            {{.}}
+        {{/version}}
+        </td>
+        <td>
+            {{#payware}}${{/payware}}
         </td>
        </tr>
+
 
 </script>
 </body>
