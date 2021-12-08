@@ -4,9 +4,6 @@
     "sourceType": "script",
     "ecmaFeatures": {}
   },
-  "plugins": [
-    "rc-leaflet"
-  ],
   "extends": [
     "jquery",
     "eslint:recommended"

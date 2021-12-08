@@ -19,7 +19,7 @@ jobs:
           root: ./
           config: ./html5validator.yml
       - name: Install eslint
-        run: npm i -g eslint && npm install eslint-plugin-rc-leaflet --save && npm install --save eslint-config-jquery
+        run: npm i -g eslint && npm install --save eslint-config-jquery
       - name: Run ESLint
         run:  eslint "js/*.js" --ext .js
       - name: Validate JSON with Glob ICAO
