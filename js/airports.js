@@ -53,7 +53,9 @@ $(() => {
                             markerData.lat,
                             markerData.long
                         ],
-                        {"title": markerData.icao}
+                        {
+                            "title": markerData.icao
+                        }
                     ).addTo(map).on(
                         "click",
                         function () {
