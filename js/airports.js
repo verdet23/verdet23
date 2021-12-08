@@ -92,6 +92,7 @@ $(() => {
                     ).addTo(map).on(
                         "click",
                         function () {
+                            $("#search").val(this.options.title);
                             showData(this.options.title);
                         }
                     );
