@@ -71,9 +71,7 @@ $(() => {
     $.getJSON(
         "../data/airports.json",
         (data) => {
-
             airports = data;
-
         }
     );
 });

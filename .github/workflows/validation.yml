@@ -8,7 +8,7 @@ on:
     - cron: '0 0 * * 0' # Weekly on Sundays at 00:00
 
 jobs:
-  test:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - name: Get latest code
@@ -17,7 +17,7 @@ jobs:
         uses: Cyb3r-Jak3/html5validator-action@v7.0.0
         with:
           root: ./
-          config: ./html5validatiom.yml
+          config: ./html5validation.yml
       - name: Install eslint
         run: npm i -g eslint && npm install --save eslint-config-jquery
       - name: Run ESLint
