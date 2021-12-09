@@ -19,7 +19,7 @@ jobs:
           root: ./
           config: ./html5validation.yml
       - name: Install eslint
-        run: npm i -g eslint && npm install --save eslint-config-jquery
+        run: npm install -g eslint && npm install --save eslint-config-jquery
       - name: Run ESLint
         run:  eslint "js/*.js" --ext .js
       - name: Validate JSON with Glob ICAO

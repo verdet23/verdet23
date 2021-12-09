@@ -11,5 +11,9 @@
   "env": {
     "browser": true,
     "jquery": true
+  },
+  "globals": {
+    "L": "readonly",
+    "Mustache": "readonly"
   }
 }

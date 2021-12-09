@@ -1,0 +1,9 @@
+version: "3.7"
+
+services:
+  gh-pages:
+    build: .
+    hostname: gh-pages
+    tty: true
+    volumes:
+      - .:/var/www/gh-pages
