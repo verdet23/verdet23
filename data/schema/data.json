@@ -31,12 +31,13 @@
           "type": "string",
           "default": "",
           "enum": [
+            "balloonport",
+            "closed",
+            "heliport",
             "large_airport",
             "medium_airport",
-            "small_airport",
             "seaplane_base",
-            "heliport",
-            "closed"
+            "small_airport"
           ]
         },
         "name": {

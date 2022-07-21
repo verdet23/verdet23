@@ -32,7 +32,9 @@ $( () => {
                 51.48,
                 0
             ],
-            "zoom": 6
+            "zoom": 6,
+            "preferCanvas": true,
+            "updateWhenZooming": false
         }
     );
 
@@ -61,10 +63,9 @@ $( () => {
     }
 
     function showAirports() {
-
         for ( let item in appData ) {
             let markerData = appData[ item ];
-            L.marker(
+            L.circleMarker(
                 [
                     markerData.lat,
                     markerData.long
