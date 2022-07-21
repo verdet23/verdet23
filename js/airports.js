@@ -8,25 +8,15 @@ $( () => {
         let keycode = ( event.keyCode ? event.keyCode : event.which );
         if ( keycode === 13 ) {
             let code = elem.val().toUpperCase();
-            let icaoRegEx = new RegExp( "^[A-Z0-9-]{3,}$" );
+            let icaoRegEx = new RegExp( "^[A-Z0-9]{3,4}|[A-Z]{2}-[0-9]{2,4}$" );
 
             if ( icaoRegEx.test( code ) ) {
-                let icaoData;
-                for ( let i = 0; i < ICAO.length; i++ ) {
-                    let check = ICAO[ i ];
-                    if ( check.icao === code ) {
-                        icaoData = check;
-                        break;
-                    }
-                }
-
-                if ( icaoData ) {
-                    map.flyTo( [ icaoData.lat, icaoData.long ], 10 );
-                    showData( icaoData.icao );
+                if ( appData[ code ] ) {
+                    map.flyTo( [ appData[ code ].lat, appData[ code ].long ], 10 );
+                    showData( code );
 
                     return;
                 }
-
             }
 
             table.html( "" );
@@ -39,8 +29,8 @@ $( () => {
         "map",
         {
             "center": [
-                59.734253447591364,
-                -149.04052734375003
+                51.48,
+                0
             ],
             "zoom": 6
         }
@@ -57,55 +47,56 @@ $( () => {
 
     let template = $( "#template" ).html(),
         table = $( "#result" ),
-        ICAO,
-        airports;
+        appData;
     Mustache.parse( template );
 
     function showData( code ) {
-        airports.some( airport => {
-            if ( code === airport.icao ) {
-                table.html( "" );
-                airport.list.forEach( data => {
-                    let rendered = Mustache.render( template, data );
-                    table.append( rendered );
-                } );
-                return true;
-            }
-        } );
+        if ( Object.prototype.hasOwnProperty.call( appData, code ) ) {
+            table.html( "" );
+            appData[ code ].sceneries.forEach( data => {
+                let rendered = Mustache.render( template, data );
+                table.append( rendered );
+            } );
+        }
     }
 
-    $.getJSON(
-        "../data/icao.json",
-        ( data ) => {
-            ICAO = data;
+    function showAirports() {
 
-            ICAO.forEach( markerData => {
-
-                    L.marker(
-                        [
-                            markerData.lat,
-                            markerData.long
-                        ],
-                        {
-                            "title": markerData.icao
-                        }
-                    ).addTo( map ).on(
-                        "click",
-                        function() {
-                            $( "#search" ).val( this.options.title );
-                            showData( this.options.title );
-                        }
-                    );
-
+        for ( let item in appData ) {
+            let markerData = appData[ item ];
+            L.marker(
+                [
+                    markerData.lat,
+                    markerData.long
+                ],
+                {
+                    "title": markerData.icao
+                }
+            ).addTo( map ).on(
+                "click",
+                function() {
+                    $( "#search" ).val( this.options.title );
+                    showData( this.options.title );
                 }
             );
         }
-    );
+    }
 
     $.getJSON(
-        "../data/airports.json",
+        "../data/x_plane-v11.json",
         ( data ) => {
-            airports = data;
+            appData = data;
         }
     );
+
+    let check = function() {
+        setTimeout( function() {
+            if ( appData === null ) {
+                check();
+            } else {
+                showAirports();
+            }
+        }, 500 );
+    };
+    check();
 } );

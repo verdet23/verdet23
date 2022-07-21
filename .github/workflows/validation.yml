@@ -25,10 +25,5 @@ jobs:
       - name: Validate JSON with Glob ICAO
         uses: nhalstead/validate-json-action@0.1.3
         with:
-            schema: data/schema/icao.json
-            jsons: data/icao.json
-      - name: Validate JSON with Glob AIRPORT
-        uses: nhalstead/validate-json-action@0.1.3
-        with:
-            schema: data/schema/airports.json
-            jsons: data/airports.json
+            schema: data/schema/data.json
+            jsons: data/*.json

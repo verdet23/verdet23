@@ -42,16 +42,11 @@
       <tr>
         <th><a href="{{ link }}">Link</a></th>
         <td>{{ title }}</td>
-        <td>
-        {{#version}}
-            {{.}}
-        {{/version}}
-        </td>
+        <td>{{ versions }}</td>
         <td>
             {{#payware}}${{/payware}}
         </td>
        </tr>
-
 </script>
 </body>
 </html>

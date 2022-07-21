@@ -1,0 +1,121 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/icao.json",
+  "title": "Root",
+  "type": "object",
+  "default": [],
+  "patternProperties": {
+    "^[A-Z0-9]{3,4}|[A-Z]{2}-[0-9]{2,4}$": {
+      "type": "object",
+      "required": [
+        "icao",
+        "type",
+        "name",
+        "lat",
+        "long",
+        "sceneries"
+      ],
+      "properties": {
+        "icao": {
+          "title": "ICAO code",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "PANC"
+          ],
+          "pattern": "^[A-Z0-9]{3,4}|[A-Z]{2}-[0-9]{2,4}$"
+        },
+        "type": {
+          "title": "Type",
+          "type": "string",
+          "default": "",
+          "enum": [
+            "large_airport",
+            "medium_airport",
+            "small_airport",
+            "seaplane_base",
+            "heliport",
+            "closed"
+          ]
+        },
+        "name": {
+          "title": "Airport name",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "Ted Stevens Anchorage International Airport"
+          ],
+          "pattern": "^.*$"
+        },
+        "lat": {
+          "title": "Latitude",
+          "type": "number",
+          "minimum": -90,
+          "maximum": 90,
+          "examples": [
+            61.1744
+          ]
+        },
+        "long": {
+          "title": "Longitude",
+          "type": "number",
+          "minimum": -180,
+          "maximum": 180,
+          "examples": [
+            -149.996002
+          ]
+        },
+        "sceneries": {
+          "title": "Sceneries",
+          "type": "array",
+          "default": [],
+          "items": {
+            "title": "Scenery",
+            "type": "object",
+            "required": [
+              "link",
+              "title",
+              "versions",
+              "payware"
+            ],
+            "properties": {
+              "link": {
+                "title": "Link",
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "https://forums.x-plane.org/index.php?/files/file/61336-panc-anchorage-ted-stevens-international-by-zero-dollar-payware/"
+                ],
+                "pattern": "^[(http)(https)].*$"
+              },
+              "title": {
+                "$id": "#root/items/list/items/title",
+                "title": "Scenery Title",
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "PANC - Anchorage Ted Stevens International by Zero Dollar Payware"
+                ],
+                "pattern": "^.*$"
+              },
+              "versions": {
+                "title": "Sim version",
+                "type": "string",
+                "default": ""
+              },
+              "payware": {
+                "title": "Payware",
+                "type": "boolean",
+                "examples": [
+                  false
+                ],
+                "default": false
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
