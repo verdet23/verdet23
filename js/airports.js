@@ -27,6 +27,7 @@ $( () => {
     $( "#simulator" ).on( "change", function() {
         loadData( $( this ).val() );
         table.html( "" );
+        $( "#search" ).val("");
         return true;
     } );
 
