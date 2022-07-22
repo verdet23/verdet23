@@ -2,7 +2,7 @@
 DOCKER_COMP = docker-compose
 
 # Docker containers
-CONT = $(DOCKER_COMP) exec gh_pages
+CONT = $(DOCKER_COMP) exec gh-pages
 #Misc
 .DEFAULT_GOAL = help
 
@@ -21,7 +21,7 @@ html-validate: ## Validate HTML
 	html5validator --config html5validation.yml
 
 json-validate: ## Validate JSON files by schema
-	ajv validate -s data/schema/data.json -d data/*.json
+	ajv validate -s data/schema/data.json -d "data/*.json"
 
 ## —— Docker 🐳 ————————————————————————————————————————————————————————————————
 build: ## Builds the Docker images
