@@ -24,6 +24,11 @@ $( () => {
         }
     } );
 
+    $( "#simulator" ).on( "change", function() {
+        loadData( $( this ).val() );
+
+        return true;
+    } );
 
     const map = L.map(
         "map",
@@ -47,12 +52,15 @@ $( () => {
         }
     ).addTo( map );
 
+    let layerGroup = L.layerGroup().addTo( map );
+
     let template = $( "#template" ).html(),
         table = $( "#result" ),
-        appData;
+        appData
+    ;
     Mustache.parse( template );
 
-    function showData( code ) {
+    let showData = function( code ) {
         if ( Object.prototype.hasOwnProperty.call( appData, code ) ) {
             table.html( "" );
             appData[ code ].sceneries.forEach( data => {
@@ -60,9 +68,10 @@ $( () => {
                 table.append( rendered );
             } );
         }
-    }
+    };
 
-    function showAirports() {
+    let showAirports = function() {
+        layerGroup.clearLayers();
         for ( let item in appData ) {
             let markerData = appData[ item ];
             L.circleMarker(
@@ -73,31 +82,26 @@ $( () => {
                 {
                     "title": markerData.icao
                 }
-            ).addTo( map ).on(
+            ).bindTooltip( markerData.icao, { direction: "top" } ).addTo( map ).on(
                 "click",
                 function() {
                     $( "#search" ).val( this.options.title );
                     showData( this.options.title );
                 }
-            );
+            ).addTo( layerGroup );
         }
-    }
+    };
 
-    $.getJSON(
-        "../data/x_plane-v11.json",
-        ( data ) => {
-            appData = data;
-        }
-    );
-
-    let check = function() {
-        setTimeout( function() {
-            if ( appData === null ) {
-                check();
-            } else {
+    let loadData = function( fileName ) {
+        let path = "../data/" + fileName + ".json";
+        $.getJSON(
+            path,
+            ( data ) => {
+                appData = data;
                 showAirports();
             }
-        }, 500 );
+        );
     };
-    check();
+
+    loadData( $( "#simulator" ).val() );
 } );
