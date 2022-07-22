@@ -26,7 +26,7 @@ $( () => {
 
     $( "#simulator" ).on( "change", function() {
         loadData( $( this ).val() );
-
+        table.html( "" );
         return true;
     } );
 
