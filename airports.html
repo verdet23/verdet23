@@ -51,6 +51,7 @@
             </div>
             <div class="col">
                 <select class="form-control mb-4 w-50 float-right align-items-center" id="simulator" aria-label="Simulator">
+                    <option value="x_plane-v12">XPlane 12</option>
                     <option selected value="x_plane-v11">XPlane 11</option>
                     <option value="x_plane-v10">XPlane 10</option>
                     <option value="x_plane-v9">XPlane 9</option>
@@ -75,6 +76,7 @@
                         <p><b>Changelog:</b></p>
                         <p>1.0.0 Initial release with support of X-Plane v11 and Forums X-Plane.ORG Files.</p>
                         <p>1.0.1 Support for X-Plane v10, v9.</p>
+                        <p>1.0.2 Support for X-Plane v12. Partial data from Store X-Plane.ORG</p>
                         <p><b>Roadmap:</b></p>
                         <p>Add more source for X-Plane sceneries.</p>
                         <p>Support MSFS, Prepare3D.</p>
@@ -83,7 +85,10 @@
                 <div class="collapse clearfix" id="collapseData3" data-parent="#collapse-data">
                     <div class="card card-body">
                         <p>Forum X-Plane.ORG Files:
-                            <time>2022-07-22</time>
+                            <time>2022-08-15</time>
+                        </p>
+                        <p>Forum X-Plane.Store Files (partial):
+                            <time>2022-08-15</time>
                         </p>
                     </div>
                 </div>
@@ -101,10 +106,9 @@
         <table class="table thead-dark">
             <thead>
             <tr>
-                <th>Link</th>
                 <th>Title</th>
-                <th>Version</th>
-                <th>Payware</th>
+                <th style="width: 15%">Version</th>
+                <th style="width: 10%">Payware</th>
             </tr>
             </thead>
             <tbody id="result">
@@ -114,11 +118,10 @@
 </div>
 <script id="template" type="x-tmpl-mustache">
       <tr>
-        <th><a href="{{ link }}" target="_blank">Link</a></th>
-        <td>{{ title }}</td>
+        <th class="align-middle"><a href="{{ link }}" target="_blank">{{ title }}</a></th>
         <td>{{ versions }}</td>
         <td>
-            {{#payware}}${{/payware}}
+            {{#payware}}🗸{{/payware}}
         </td>
        </tr>
 </script>
